@@ -10,8 +10,13 @@ export async function GET(){
     await connectDB();
 
     const cookieStore =  cookies();
+     
     const token =  cookieStore.get("token")?.value;
-
+    
+ if (!token) {
+    console.log("No token found in cookies");
+    return Response.json({ error: "Authentication required" }, { status: 401 });
+  }
     const decoded = jwt.verify(token , SECRET);
 
     const user = await UserModel.findById(decoded.userId)
