@@ -21,12 +21,17 @@ export async function POST(req){
         
   
 
-            return new Response(JSON.stringify({message : "Login Successfull"}) , {
-                status : 200 , 
-                headers : {
-                    "Set-Cookie" : `token = ${token}; HttpOnly; Path=/; Max-Age=604800`
-                }
-            })
+           return new Response(
+  JSON.stringify({ message: "Login Successful" }),
+  {
+    status: 200,
+    headers: {
+      "Set-Cookie": `token=${token}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict; ${process.env.NODE_ENV === "production" ? "Secure;" : ""}`,
+      "Content-Type": "application/json"
+    }
+  }
+);
+
 
 
 }
