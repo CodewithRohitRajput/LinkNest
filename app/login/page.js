@@ -37,7 +37,7 @@ export default function Login() {
       <main className="flex-grow flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md bg-white rounded-2xl shadow-xl p-8 transform transition-all hover:scale-[1.02]">
           <h2 className="text-3xl font-extrabold text-gray-900 text-center mb-6 flex items-center gap-2">
-            <span>🔐</span> Log in to LinkNest
+            <span>🔐</span> Hey Buddy, Log in to LinkNest
           </h2>
 
           <form onSubmit={handleLogin} className="space-y-6">
