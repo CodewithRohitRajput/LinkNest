@@ -16,7 +16,7 @@ export default async function PublicProfile({ params }) {
             User Not Found
           </h1>
           <p className="text-gray-600 text-center">
-            The profile you're looking for doesn't exist or has been removed.
+            The profile you are looking for does not exist or has been removed.
           </p>
           <div className="mt-6 flex justify-center">
             <Link 
