@@ -6,7 +6,7 @@ export default function LogoutBtn(){
   const router = useRouter();
     
   const handleLogout = async ()=>{
-    await fetch('http://localhost:3000/api/logout' , 
+    await fetch('/api/logout' , 
         {method : 'DELETE' , 
             credentials : 'include'
         }
