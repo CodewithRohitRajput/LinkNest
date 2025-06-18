@@ -1,5 +1,6 @@
 import { connectDB } from "@/lib/mongodb";
 import { UserModel } from "@/app/models/User";
+import Link from "next/link";
 
 export default async function PublicProfile({ params }) {
   await connectDB();
@@ -18,12 +19,12 @@ export default async function PublicProfile({ params }) {
             The profile you're looking for doesn't exist or has been removed.
           </p>
           <div className="mt-6 flex justify-center">
-            <a 
+            <Link 
               href="/"
               className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 font-medium"
             >
               Return Home
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -148,7 +149,7 @@ export default async function PublicProfile({ params }) {
             
             <div className="space-y-3">
               {user.linkedin && (
-                <a
+                <Link
                   href={user.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -163,11 +164,11 @@ export default async function PublicProfile({ params }) {
                     <div className="font-medium group-hover:text-blue-300 transition-colors">LinkedIn</div>
                     <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Professional Network</div>
                   </div>
-                </a>
+                </Link>
               )}
               
               {user.github && (
-                <a
+                <Link
                   href={user.github}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -182,11 +183,11 @@ export default async function PublicProfile({ params }) {
                     <div className="font-medium group-hover:text-gray-300 transition-colors">GitHub</div>
                     <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Code & Projects</div>
                   </div>
-                </a>
+                </Link>
               )}
               
               {user.website && (
-                <a
+                < Link
                   href={user.website}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -201,7 +202,7 @@ export default async function PublicProfile({ params }) {
                     <div className="font-medium group-hover:text-green-300 transition-colors">Portfolio</div>
                     <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">Personal Website</div>
                   </div>
-                </a>
+                </Link>
               )}
             </div>
           </div>
