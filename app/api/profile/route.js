@@ -9,8 +9,8 @@ const SECRET = process.env.JWT_SECRET;
 export async function GET(){
     await connectDB();
 
-    const cookieStore = await cookies();
-    const token = await cookieStore.get("token")?.value;
+    const cookieStore =  cookies();
+    const token =  cookieStore.get("token")?.value;
 
     const decoded = jwt.verify(token , SECRET);
 
@@ -23,7 +23,7 @@ export async function GET(){
 export async function PUT(req){
     await connectDB();
 
-    const cookieStore = await cookies();
+    const cookieStore =  cookies();
     const token = await cookieStore.get("token")?.value;
 
     const decoded = jwt.verify(token , SECRET);
