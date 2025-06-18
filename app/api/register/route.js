@@ -21,9 +21,17 @@ export async function POST(req){
 
         const token = jwt.sign({userId : newUser._id }, SECRET , {expiresIn : '7d'})
 
-       return new Response(JSON.stringify({message : "User registered "}) , {status : 200 , headers : {
-            'Set-Cookie' : `token=${token}; HttpOnly; Path=/; Max-Age=604800`
-    }})
+      return new Response(
+  JSON.stringify({ message: "User registered" }),
+  {
+    status: 200,
+    headers: {
+      'Set-Cookie': `token=${token}; HttpOnly; Path=/; Max-Age=604800; SameSite=Strict; ${process.env.NODE_ENV === 'production' ? 'Secure;' : ''}`,
+      'Content-Type': 'application/json'
+    }
+  }
+);
+
 
     }catch(err){
         {
