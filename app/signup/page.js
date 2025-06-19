@@ -31,7 +31,8 @@ export default function Signup() {
       setEmail('')
       setPassword('')
       setUsername('')
-      router.push('/dashboard/profile')
+     window.location.href = '/dashboard/profile'
+
     } else {
       setErr(data.error || 'Something went wrong')
     }
