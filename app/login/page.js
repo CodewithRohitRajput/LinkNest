@@ -25,7 +25,8 @@ export default function Login() {
     if (res.ok) {
       setEmail('')
       setPassword('')
-      router.push('/dashboard/profile')
+      window.location.href = '/dashboard/profile'
+
     } else {
       alert("Something went wrong")
     }
