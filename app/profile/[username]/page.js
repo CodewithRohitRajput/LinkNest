@@ -2,6 +2,14 @@ import { connectDB } from "@/lib/mongodb";
 import { UserModel } from "@/app/models/User";
 import Link from "next/link";
 
+export  async function generateMetadata({params}) {
+  const {username} = await params
+  return {
+
+    title : `Portfolio : ${username}`
+  }
+}
+
 export default async function PublicProfile({ params }) {
   await connectDB();
   const { username } = params;
